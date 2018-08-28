@@ -2,7 +2,7 @@ class GamesController < ApplicationController
   # Add your GamesController code here
 
   def create
-    @game = Game.create(params)
+    @game = Game.create(game_params)
     render json: @game, status: 200,
   end
 
@@ -13,7 +13,7 @@ class GamesController < ApplicationController
 
   def update
     @game = Game.find(params[:id])
-    @game.update(params)
+    @game.update(game_params)
     render json: @game, status: 200
   end
 
@@ -21,5 +21,11 @@ class GamesController < ApplicationController
     @games = Game.all
     render json: @games, status: 200
   end
+
+  private
+  def game_params
+    params.require(:game).permit(:state) if params[:game]
+  end
+
 
 end
