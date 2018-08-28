@@ -1,6 +1,6 @@
 class GamesController < ApplicationController
   # Add your GamesController code here
-  before_action 
+  before_action :set_game, only: [:show, :update]
 
   def create
     @game = Game.create(game_params)
