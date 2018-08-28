@@ -27,5 +27,4 @@ class GamesController < ApplicationController
     params.permit(state: [])
   end
 
-
 end
