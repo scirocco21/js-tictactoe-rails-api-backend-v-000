@@ -1,5 +1,6 @@
 class GamesController < ApplicationController
   # Add your GamesController code here
+  before_action 
 
   def create
     @game = Game.create(game_params)
@@ -24,6 +25,7 @@ class GamesController < ApplicationController
 
   private
   def game_params
+    # tests are passing in array as attribute, which needs to be explicitly whitelisted
     params.permit(state: [])
   end
 
